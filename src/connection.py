@@ -13,6 +13,9 @@ class Connection:
         self.generation = "Generation1"
         self.active_active = False
         self.enable_bgp = True
+        
+    def getConnection(self):
+        return self
 
     def name(self):
         return f"{self.region}-{self.customer_short_name}"
@@ -34,7 +37,4 @@ class Connection:
     def virtual_network_value(self):
         return self.virtual_network
 
-# Example usage
-connection = Connection("SubscriptionID", "ResourceGroup", "CustShortName", "RegionName", "VNetName", 12345)
-print(connection.name())
-print(connection.public_ip_address())
+

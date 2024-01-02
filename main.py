@@ -1,11 +1,12 @@
 from flask import Flask
-from src import connection
+from src import Connection
 
 app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return str(Connection("SubscriptionID", "ResourceGroup", "CustShortName", "RegionName", "VNetName", 12345))
+    Connection("SubscriptionID", "ResourceGroup", "CustShortName", "RegionName", "VNetName", 12345)
+    return str()
 
 @app.route('/myname/')
 def name():
