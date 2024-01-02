@@ -23,10 +23,12 @@ class DB:
             row['id'] = self._generate_unique_id()
         self.data.append(row)
         self.save_data()
+        return row['id']
 
     def delete_row(self, row_id):
         self.data = [row for row in self.data if row.get('id') != row_id]
         self.save_data()
+        return True
 
     def find_row_by_id(self, row_id):
         for row in self.data:

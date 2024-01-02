@@ -1,37 +1,54 @@
+from .database import DB
+
 class Connection:
-    def __init__(self, subscription, resource_group, customer_short_name, region, vnet_name, asn):
-        self.subscription = subscription
-        self.resource_group = resource_group
+    def __init__(self, customer_short_name, region, asn):
+        self.DB = DB("connection_db.json")
+
         self.customer_short_name = customer_short_name
         self.region = region
-        self.virtual_network = vnet_name
-        self.asn = asn
 
-        # Static fields
-        self.gateway_type = "VPN"
-        self.sku = "VpnGw1"
-        self.generation = "Generation1"
-        self.active_active = False
-        self.enable_bgp = True
+        self.vti_ip = None
+        
+        self.asn = asn
+        self.type = "VPN"
         
     def getConnection(self):
         return {
-            "subscription": self.subscription,
-            "resource_group": self.resource_group,
             "customer_short_name": self.customer_short_name,
             "region": self.region,
-            "virtual_network": self.virtual_network,
             "asn": self.asn,
-            "gateway_type": self.gateway_type,
-            "sku": self.sku,
-            "generation": self.generation,
-            "active_active": self.active_active,
-            "enable_bgp": self.enable_bgp
+            "type": self.type
         }
+    
+    def start():
+        successful = True
+        #FRR Config write
+        #LibreSwan Config write
+        if(successful):
+            self.DB.insert_row(self.getConnection())
+            return "Connected"
+        return "Connection Failed"
+
+    def stop():
+        successful = True
+        #FRR Config write
+        #LibreSwan Config write
+        if(successful):
+            self.DB.delete_row(self.getConnection())
+            return "Disconnected"
+        return "Disconnected"
+
+# __________________________________________________ NAME ___________________________________________________
 
     def name(self):
-        return f"{self.region}-{self.customer_short_name}"
+        self.name = f"{self.region}-{self.customer_short_name}"
+        return self.name
 
+    def vti_name(self):
+        self.vti_name = f"{self.region}-{self.customer_short_name}-vti"
+        return self.vti_name
+
+# ____________________________________________________ PUBLIC IP ADDRESSS ___________________________________________________
     def set_public_ip_address(self, public_ip_address):
         self.public_ip_address = public_ip_address
         return public_ip_address
@@ -39,17 +56,20 @@ class Connection:
     def get_public_ip_address(self):
         return self.public_ip_address
 
-    # The following methods are placeholders for actual logic to get these values
-    def subscription_value(self):
-        return self.subscription
+# ____________________________________________________ PRIVATE IP ADDRESSS ___________________________________________________
 
-    def resource_group_value(self):
-        return self.resource_group
+    def set_private_ip_address(self, private_ip_address):
+        self.private_ip_address = private_ip_address
+        return private_ip_address
 
-    def region_value(self):
-        return self.region
+    def get_private_ip_address(self):
+        return self.private_ip_address
 
-    def virtual_network_value(self):
-        return self.virtual_network
+# ____________________________________________________ VTI IP ADDRESSS __________________________________
 
+    def set_vti_ip(self, vti_ip):
+        self.vti_ip = vti_ip
+
+    def get_vti_ip(self):
+        return self.vti_ip
 
