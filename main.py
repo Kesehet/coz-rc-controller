@@ -1,12 +1,15 @@
 from flask import Flask
-from src import Connection
+
+from src.connection import Connection
+
 
 app = Flask(__name__)
 
 @app.route('/')
 def home():
-    Connection("SubscriptionID", "ResourceGroup", "CustShortName", "RegionName", "VNetName", 12345)
-    return str()
+    conn = Connection("SubscriptionID", "ResourceGroup", "CustShortName", "RegionName", "VNetName", 12345)
+    conn.set_public_ip_address("192.169.1.1")
+    return conn.get_public_ip_address()
 
 @app.route('/myname/')
 def name():

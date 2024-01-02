@@ -15,14 +15,17 @@ class Connection:
         self.enable_bgp = True
         
     def getConnection(self):
-        return self
+        return self.name(), self.public_ip_address()
 
     def name(self):
         return f"{self.region}-{self.customer_short_name}"
 
-    def public_ip_address(self):
-        # Placeholder for IP address generation logic
-        return "IP Address Creation"
+    def set_public_ip_address(self, public_ip_address):
+        self.public_ip_address = public_ip_address
+        return public_ip_address
+
+    def get_public_ip_address(self):
+        return self.public_ip_address
 
     # The following methods are placeholders for actual logic to get these values
     def subscription_value(self):
