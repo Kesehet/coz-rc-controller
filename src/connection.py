@@ -15,7 +15,19 @@ class Connection:
         self.enable_bgp = True
         
     def getConnection(self):
-        return self.name(), self.public_ip_address()
+        return {
+            "subscription": self.subscription,
+            "resource_group": self.resource_group,
+            "customer_short_name": self.customer_short_name,
+            "region": self.region,
+            "virtual_network": self.virtual_network,
+            "asn": self.asn,
+            "gateway_type": self.gateway_type,
+            "sku": self.sku,
+            "generation": self.generation,
+            "active_active": self.active_active,
+            "enable_bgp": self.enable_bgp
+        }
 
     def name(self):
         return f"{self.region}-{self.customer_short_name}"

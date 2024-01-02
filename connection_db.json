@@ -1,0 +1,30 @@
+[
+    {
+        "subscription": "SubscriptionID",
+        "resource_group": "ResourceGroup",
+        "customer_short_name": "CustShortName",
+        "region": "RegionName",
+        "virtual_network": "VNetName",
+        "asn": 12345,
+        "gateway_type": "VPN",
+        "sku": "VpnGw1",
+        "generation": "Generation1",
+        "active_active": false,
+        "enable_bgp": true,
+        "id": 1
+    },
+    {
+        "subscription": "SubscriptionID",
+        "resource_group": "ResourceGroup",
+        "customer_short_name": "CustShortName",
+        "region": "RegionName",
+        "virtual_network": "VNetName",
+        "asn": 12345,
+        "gateway_type": "VPN",
+        "sku": "VpnGw1",
+        "generation": "Generation1",
+        "active_active": false,
+        "enable_bgp": true,
+        "id": 2
+    }
+]
