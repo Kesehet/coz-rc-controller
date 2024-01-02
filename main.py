@@ -1,5 +1,5 @@
 from flask import Flask
-from src import Connection
+from src import connection
 
 app = Flask(__name__)
 
