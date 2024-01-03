@@ -27,7 +27,7 @@ def addconnection():
 
 
 @app.route(apiRoute("connections"))
-def addconnection():
+def getAllConnections():
     return ConnectionDB.data
 
 
