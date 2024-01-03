@@ -15,20 +15,18 @@ class FRR:
 
     def new_connection(self,conn_type):
         if conn_type:
-            print("command 1")
-            print(self.run_vtysh_command(f'''
+            self.run_vtysh_command(f'''
 
-            
+
             conf t 
             router bgp 1
             neighbor 10.1.1.1 remote-as 2
 
 
-            '''))
-            print("command 2")
-            print(
-                self.run_vtysh_command(f"show run")
-            )
+            ''')
+            
+            
+            self.run_vtysh_command(f"show run")
 
 
 
