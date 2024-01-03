@@ -9,15 +9,21 @@ ConnectionDB = DB("connection_db.json")
 Config = DB("config_db.json")
 
 
+def apiRoute(route):
+    return "/api/" + route
 
 
 @app.route('/')
 def home():
-    
-    return Config.data
+
+    return Config.get_saved_key("name")
 
 
+@app.route(apiRoute("addconnection"))
+def addconnection():
 
+    conn = Connection("test", "test", "test").start()
+    return 
 
 
 
@@ -34,8 +40,6 @@ def setname(name):
 
 
 
-def apiRoute(route):
-    return "/api/" + route
 
 
 if __name__ == '__main__':

@@ -1,12 +1,22 @@
 [
     {
        "id": 1,
-       "key": "rc-controller",
-       "value": "127.0.0.1"
+       "key": "name",
+       "value": "RC-1"
     },
     {
        "id": 2,
        "key": "public-ip",
        "value": "220.12.13.14"
+    },
+    {
+       "id": 3,
+       "key": "private-ip",
+       "value": "10.0.0.4"
+    },
+    {
+        "id": 4,
+        "key": "secret",
+        "value": "x6aW8fnKBsyMwPRvUxwxbBttM9QG8EGD37zz7CGdmsRhV2zECz"
     }
 ]

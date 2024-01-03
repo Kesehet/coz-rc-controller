@@ -14,13 +14,15 @@ class Connection:
         
     def getConnection(self):
         return {
+            "key": "name",
+            "value": self.name(),
             "customer_short_name": self.customer_short_name,
             "region": self.region,
             "asn": self.asn,
             "type": self.type
         }
     
-    def start():
+    def start(self):
         successful = True
         #FRR Config write
         #LibreSwan Config write
@@ -29,7 +31,7 @@ class Connection:
             return "Connected"
         return "Connection Failed"
 
-    def stop():
+    def stop(self):
         successful = True
         #FRR Config write
         #LibreSwan Config write

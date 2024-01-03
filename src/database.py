@@ -35,6 +35,16 @@ class DB:
             if row.get('id') == row_id:
                 return row
         return None
+    
+    def find_row_by_column_name(self, key, value):
+        for row in self.data:
+            if row.get(key) == value:
+                return row
+        return None
+
+    def get_saved_key(self, key):
+        row = self.find_row_by_column_name("key", key)
+        return row.get("value")
 
     def get_rows(self):
         return self.data
