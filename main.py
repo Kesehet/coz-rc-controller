@@ -26,6 +26,11 @@ def addconnection():
     return "Connection Added"
 
 
+@app.route(apiRoute("connections"))
+def addconnection():
+    return ConnectionDB.data
+
+
 
 @app.route('/myname/')
 def name():
