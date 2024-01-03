@@ -54,6 +54,10 @@ sudo apt install libreswan -y
 sudo apt install nmap -y
 sudo apt install traceroute -y
 
+echo "bgpd=yes" | sudo tee -a /etc/frr/daemons
+
+sudo systemctl restart frr
+
 clear
 
 python3 main.py

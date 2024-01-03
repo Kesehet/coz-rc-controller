@@ -1,4 +1,5 @@
 from .database import DB
+from .frr import FRR
 
 class Connection:
     def __init__(self, customer_short_name, region, asn):
@@ -25,6 +26,7 @@ class Connection:
     def start(self):
         successful = True
         #FRR Config write
+        print(FRR.run_vtysh_command(f"show run"))
         #LibreSwan Config write
         if(successful):
             self.DB.insert_row(self.getConnection())
