@@ -23,7 +23,7 @@ def home():
 def addconnection():
 
     conn = Connection("test", "test", "test").start()
-    return 
+    return "Connection Added"
 
 
 

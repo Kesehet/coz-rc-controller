@@ -7,5 +7,14 @@
         "asn": "test",
         "type": "VPN",
         "id": 1
+    },
+    {
+        "key": "name",
+        "value": "test-test",
+        "customer_short_name": "test",
+        "region": "test",
+        "asn": "test",
+        "type": "VPN",
+        "id": 2
     }
 ]
