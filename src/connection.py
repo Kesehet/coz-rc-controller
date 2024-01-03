@@ -4,7 +4,7 @@ from .frr import FRR
 class Connection:
     def __init__(self, customer_short_name, region, asn):
         self.DB = DB("connection_db.json")
-
+        self.frr = FRR()
         self.customer_short_name = customer_short_name
         self.region = region
 
@@ -26,7 +26,7 @@ class Connection:
     def start(self):
         successful = True
         #FRR Config write
-        print(FRR.run_vtysh_command(f"show run"))
+        print(self.frr.run_vtysh_command(f"show run"))
         #LibreSwan Config write
         if(successful):
             self.DB.insert_row(self.getConnection())
