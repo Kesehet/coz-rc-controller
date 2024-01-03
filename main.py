@@ -32,8 +32,10 @@ def getAllConnections():
 
 @app.route(apiRoute("connection/<name>"))
 def getConnection(name):
-
-    return ConnectionDB.get_saved_key(name)
+    row = ConnectionDB.find_row_by_column_name("value", name)
+    if row == None:
+        return "Connection Not Found"
+    return row
 
 @app.route('/myname/')
 def name():
