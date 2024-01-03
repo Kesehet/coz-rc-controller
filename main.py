@@ -30,7 +30,10 @@ def addconnection():
 def getAllConnections():
     return ConnectionDB.data
 
+@app.route(apiRoute("connection/<name>"))
+def getConnection(name):
 
+    return ConnectionDB.get_saved_key(name)
 
 @app.route('/myname/')
 def name():
