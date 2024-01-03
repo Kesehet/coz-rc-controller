@@ -9,11 +9,12 @@ ConnectionDB = DB("connection_db.json")
 Config = DB("config_db.json")
 
 
+
+
 @app.route('/')
 def home():
-    conn = Connection("ResourceGroup", "CustShortName", "RegionName", "VNetName", 12345)
-    conn.set_public_ip_address("192.169.1.1")
-    return conn.get_public_ip_address()
+    
+    return Config.data
 
 
 
@@ -30,6 +31,11 @@ def setname(name):
     return f"My name is {name}"
 
 
+
+
+
+def apiRoute(route):
+    return "/api/" + route
 
 
 if __name__ == '__main__':
