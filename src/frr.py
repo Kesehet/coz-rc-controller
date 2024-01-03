@@ -13,5 +13,18 @@ class FRR:
             print(f"Error executing vtysh command: {error}")
         return output.decode()
 
+    def new_connection(self,conn_type):
+        if conn_type:
+
+            print(self.run_vtysh_command(f'''
+            conf t 
+            router bgp 1
+            neighbor 10.1.1.1 remote-as 2
+            '''))
+            print(
+                self.run_vtysh_command(f"show run")
+            )
+
+
 
 

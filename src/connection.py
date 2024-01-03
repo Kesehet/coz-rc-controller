@@ -26,7 +26,7 @@ class Connection:
     def start(self):
         successful = True
         #FRR Config write
-        print(self.frr.run_vtysh_command(f"show run"))
+        self.frr.new_connection("vpn")
         #LibreSwan Config write
         if(successful):
             self.DB.insert_row(self.getConnection())
