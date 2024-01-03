@@ -14,11 +14,12 @@ class FRR:
         return output.decode()
 
     def new_connection(self,conn_type):
-        if conn_type:
+        if conn_type == "AZ":
+            variable = "conf t"
             self.run_vtysh_command(f'''
 
 
-            conf t 
+            {variable}
             router bgp 1
             neighbor 10.1.1.1 remote-as 2
 
