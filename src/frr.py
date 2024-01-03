@@ -14,8 +14,9 @@ class FRR:
         return output.decode()
 
     def new_connection(self,conn_type):
+        variable = "conf t"
         if conn_type == "AZ":
-            variable = "conf t"
+            
             self.run_vtysh_command(f'''
 
 
