@@ -11,6 +11,7 @@ class FRR:
         output, error = process.communicate()
         if error:
             print(f"Error executing vtysh command: {error}")
+            return f"Error executing vtysh command: {error}"
         return output.decode()
 
     def new_connection(self,conn_type):
