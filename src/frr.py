@@ -18,10 +18,13 @@ class FRR:
         
         if conn_type == "AZ":
             my_asn = "65000"
+
+            azure_vnet_gateway_ip = "237.84.2.178"
+            
             self.run_vtysh_command(f'''
             conf t
             router bgp {asn}
-            neighbor azure_vnet_gateway_ip remote-as 2
+            neighbor {azure_vnet_gateway_ip} remote-as 2
 
 
 
@@ -38,10 +41,12 @@ class FRR:
             conf t
             router bgp {asn}
             neighbor {siteb_vti} remote-as {siteb_asn}
-            
+
             ''')
             
-
+    def delete_connection(self):
+        # Delete a connection from the frr vtysh
+        pass
 
 
 
