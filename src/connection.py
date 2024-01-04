@@ -28,6 +28,8 @@ class Connection:
         #FRR Config write
         self.frr.new_connection("vpn")
         #LibreSwan Config write
+        
+
         if(successful):
             self.DB.insert_row(self.getConnection())
             return "Connected"

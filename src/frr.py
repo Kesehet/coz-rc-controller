@@ -15,21 +15,32 @@ class FRR:
         return output.decode()
 
     def new_connection(self,conn_type):
-        variable = "conf t"
+        
         if conn_type == "AZ":
-            
+            my_asn = "65000"
             self.run_vtysh_command(f'''
+            conf t
+            router bgp {asn}
+            neighbor azure_vnet_gateway_ip remote-as 2
 
-
-            {variable}
-            router bgp 1
-            neighbor 10.1.1.1 remote-as 2
 
 
             ''')
             
             
             self.run_vtysh_command(f"show run")
+        if conn_type == "RC":
+            my_asn = "65000" # fixed - This machine's ASN
+
+            siteb_vti = "237.84.2.178"
+            siteb_asn = "65000"
+            self.run_vtysh_command(f'''
+            conf t
+            router bgp {asn}
+            neighbor {siteb_vti} remote-as {siteb_asn}
+            
+            ''')
+            
 
 
 

@@ -17,10 +17,10 @@ echo "Installing Extra modules for VRF"
 sudo apt install linux-modules-extra-$(uname -r) -y
 
 echo "Configuring sysctl"
-   sudo modprobe mpls_router
-   sudo modprobe mpls_iptunnel
- sudo sysctl -w net.mpls.conf.eth0.input=1
-    sudo sysctl -w net.mpls.platform_labels=1000
+sudo modprobe mpls_router
+sudo modprobe mpls_iptunnel
+sudo sysctl -w net.mpls.conf.eth0.input=1
+sudo sysctl -w net.mpls.platform_labels=1000
 
 
 
